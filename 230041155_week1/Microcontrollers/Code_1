@@ -1,0 +1,25 @@
+## code for the circuit
+## Base to Aduino code
+// BASE STATION ARDUINO CODE
+const int ledPin = 13;
+const int receivePin = 3;
+
+void setup() {
+  pinMode(ledPin, OUTPUT);
+  pinMode(receivePin, INPUT);
+  Serial.begin(9600);
+  Serial.println("Start!");
+}
+
+void loop() {
+  int command = digitalRead(receivePin);
+  
+  if (command == HIGH) {
+    digitalWrite(ledPin, HIGH);
+    Serial.println("DARK - LED ON");
+  } else {
+    digitalWrite(ledPin, LOW);
+    Serial.println("LIGHT - LED OFF");
+  }
+  delay(500);
+}
