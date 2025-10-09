@@ -1,5 +1,5 @@
 ## code for the circuit
-## Base to Aduino code
+## Base station Aduino code
 // BASE STATION ARDUINO CODE
 const int ledPin = 13;
 const int receivePin = 3;
