@@ -1,0 +1,29 @@
+## Rover arduino- light sensor code
+// ROVER ARDUINO - Light Sensor Code
+const int ldrPin = A0;
+const int transmitPin = 2;
+int lightValue;
+int threshold = 500;
+
+void setup() {
+  pinMode(transmitPin, OUTPUT);
+  Serial.begin(9600);
+  Serial.println("Start!");
+}
+
+void loop() {
+  lightValue = analogRead(ldrPin);
+  
+  Serial.print("Light Value: ");
+  Serial.print(lightValue);
+  
+  if (lightValue > threshold) {
+    digitalWrite(transmitPin, LOW);
+    Serial.println(" - BRIGHT -> Sending 'light' command");
+  } else {
+    digitalWrite(transmitPin, HIGH);
+    Serial.println(" - DARK -> Sending 'dark' command");
+  }
+  
+  delay(1000);
+}
