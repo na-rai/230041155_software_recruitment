@@ -1,0 +1,11 @@
+#!/bin/bash
+
+mkdir -p ~/altair_software_recruitment/executables
+
+cat > ~/altair_software_recruitment/executables/altair_hello.py << 'EOF'
+#!/usr/bin/env python3
+print("Hello Altair!")
+EOF
+sudo chown root:root ~/altair_software_recruitment/executables/altair_hello.py
+sudo chmod 700 ~/altair_software_recruitment/executables/altair_hello.py
+
