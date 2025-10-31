@@ -8,13 +8,12 @@ Motor::Motor(int p1, int p2) {
   pinMode(pin2, OUTPUT);
 }
 
-// Move motor forward
+
 void Motor::forward(int speed) {
   analogWrite(pin1, speed); 
   analogWrite(pin2, 0);      
 }
 
-// Move motor backward
 void Motor::backward(int speed) {
   analogWrite(pin1, 0);     
   analogWrite(pin2, speed);  
@@ -22,4 +21,5 @@ void Motor::backward(int speed) {
 void Motor::stop() {
   analogWrite(pin1, 0);  
   analogWrite(pin2, 0);  
+
 }
