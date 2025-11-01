@@ -4,17 +4,16 @@ from launch import LaunchDescription
 from launch_ros.actions import Node
 
 def generate_launch_description():
-    # Get package directory
     pkg_share = get_package_share_directory('urdf_test')
     
-    # Path to URDF file - FIXED PATH
+
     urdf_file = os.path.join(pkg_share, 'urdf', 'robot.urdf')
     
-    # Read URDF contents
+
     with open(urdf_file, 'r') as file:
         robot_description = file.read()
     
-    # Robot State Publisher Node
+
     robot_state_publisher = Node(
         package='robot_state_publisher',
         executable='robot_state_publisher',
@@ -22,7 +21,6 @@ def generate_launch_description():
         parameters=[{'robot_description': robot_description}]
     )
     
-    # Joint State Publisher Node
     joint_state_publisher = Node(
         package='joint_state_publisher',
         executable='joint_state_publisher',
@@ -30,7 +28,6 @@ def generate_launch_description():
         output='screen'
     )
     
-    # RViz2 Node
     rviz_node = Node(
         package='rviz2',
         executable='rviz2',
